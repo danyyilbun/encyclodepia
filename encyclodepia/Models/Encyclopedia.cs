@@ -2,10 +2,11 @@
 {
     public class Encyclopedia
     {
-        private int _id;
-        private string _name;
-        private string _description;
-        private string _field_of_data;
-        private IList<Item> items;
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Field_of_data { get; set; }
+        @
+        public IList<Item> items { get; set; }
     }
 }

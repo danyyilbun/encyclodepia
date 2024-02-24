@@ -60,6 +60,7 @@ namespace encyclodepia.Controllers
         }
 
         // GET: HomeController/Delete/5
+        [HttpGet]
         public ActionResult Delete(int id)
         {
             return View();
