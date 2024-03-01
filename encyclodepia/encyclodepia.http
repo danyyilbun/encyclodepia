@@ -1,6 +1,6 @@
 @encyclodepia_HostAddress = http://localhost:5108
 
-GET {{encyclodepia_HostAddress}}/weatherforecast/
+GET {{encyclodepia_HostAddress}}/encyclopedia/
 Accept: application/json
 
 ###

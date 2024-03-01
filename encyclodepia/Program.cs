@@ -1,4 +1,4 @@
-using encyclodepia.Views;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using encyclodepia.Data;
@@ -29,8 +29,10 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapEncyclopediaEndpoints();
+//app.MapEncyclopediaEndpoints();
 
 app.MapItemEndpoints();
+
+app.MapEncyclopediaEndpoints();
 
 app.Run();

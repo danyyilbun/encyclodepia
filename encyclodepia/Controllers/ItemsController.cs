@@ -26,7 +26,7 @@ public static class ItemEndpoints
         group.MapGet("/{id}", async Task<Results<Ok<Item>, NotFound>> (int id, encyclodepiaContext db) =>
         {
             return await db.Item.AsNoTracking()
-                .FirstOrDefaultAsync(model => model.Id == id)
+                .FirstOrDefaultAsync(model => model.ID == id)
                 is Item model
                     ? TypedResults.Ok(model)
                     : TypedResults.NotFound();
@@ -37,9 +37,9 @@ public static class ItemEndpoints
         group.MapPut("/{id}", async Task<Results<Ok, NotFound>> (int id, Item item, encyclodepiaContext db) =>
         {
             var affected = await db.Item
-                .Where(model => model.Id == id)
+                .Where(model => model.ID == id)
                 .ExecuteUpdateAsync(setters => setters
-                  .SetProperty(m => m.Id, item.Id)
+                  .SetProperty(m => m.ID, item.ID)
                   );
             return affected == 1 ? TypedResults.Ok() : TypedResults.NotFound();
         })
@@ -50,7 +50,7 @@ public static class ItemEndpoints
         {
             db.Item.Add(item);
             await db.SaveChangesAsync();
-            return TypedResults.Created($"/api/Item/{item.Id}",item);
+            return TypedResults.Created($"/api/Item/{item.ID}",item);
         })
         .WithName("CreateItem")
         .WithOpenApi();
@@ -58,7 +58,7 @@ public static class ItemEndpoints
         group.MapDelete("/{id}", async Task<Results<Ok, NotFound>> (int id, encyclodepiaContext db) =>
         {
             var affected = await db.Item
-                .Where(model => model.Id == id)
+                .Where(model => model.ID == id)
                 .ExecuteDeleteAsync();
             return affected == 1 ? TypedResults.Ok() : TypedResults.NotFound();
         })
